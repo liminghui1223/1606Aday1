@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="./images/load.gif" alt="" id="a1">
+        <img src="./images/load.gif" alt="" id="a2">
+        <img src="./images/load.gif" alt="" id="a3">
+        <img src="./images/load.gif" alt="" id="a4">
+        <img src="./images/load.gif" alt="" id="a5">
+        <img src="./images/load.gif" alt="" id="a6">
+        <img src="./images/load.gif" alt="" id="a7">
+        <img src="./images/load.gif" alt="" id="a8">
+        <img src="./images/load.gif" alt="" id="a9">
+        <img src="./images/load.gif" alt="" id="a10">
+    </div>
+    <script>
+        function loading(obj) {
+            return new Promise((resolve, reject) => {
+                let imgObj = new Image();
+                imgObj.onload = () => {
+                    //图片加载成功
+                    //把图片加载到页面中
+                    obj.el.src = imgObj.src;
+                    resolve(imgObj);
+                };
+                imgObj.onerror = () => {
+                    //图片加载失败
+                    reject('图片加载失败' + obj.src)
+                };
+                imgObj.src = obj.src;
+            });
+        }
+        var temp = [];
+        Promise.all([loading({
+                el: a1,
+                src: "images/a.jpg"
+            }),
+            loading({
+                el: a2,
+                src: "images/b.jpg"
+            }),
+            loading({
+                el: a3,
+                src: "images/c.jpg"
+            }),
+            loading({
+                el: a4,
+                src: "images/d.jpg"
+            }),loading({
+                el: a5,
+                src: "images/e.jpg"
+            }),loading({
+                el: a6,
+                src: "images/f.jpg"
+            }),loading({
+                el: a7,
+                src: "images/g.jpg"
+            }),loading({
+                el: a8,
+                src: "images/h.jpg"
+            }),loading({
+                el: a9,
+                src: "images/i.jpg"
+            }),loading({
+                el: a10,
+                src: "images/j.jpg"
+            })
+        ]).catch((err) => {
+            console.log(err)
+        })
+    </script>
+</body>
+
+</html>
