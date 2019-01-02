@@ -6,6 +6,7 @@ import Mine from '@/components/mine'
 import Peng from '@/components/peng'
 import Zhang from '@/components/zhang'
 import Box from '@/components/box/box'
+import Detail from '@/components/detail/detail'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
           component: Zhang
         }
       ]
+    },
+    {
+      path: '/detail',
+      name: 'Detail',
+      component: Detail
     }
   ]
 })

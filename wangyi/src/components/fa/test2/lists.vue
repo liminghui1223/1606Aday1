@@ -37,7 +37,6 @@ export default {
     .bottoms dl{
         width:100%;
         height:130px;
-        border-bottom: 1px solid #ccc;
         display: flex;
         margin-top:6px;
     }

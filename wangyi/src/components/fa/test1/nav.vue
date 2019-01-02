@@ -1,6 +1,6 @@
 <template>
      <div class="nav">
-        <dl v-for="(val,index) in navs" :key="index">
+        <dl v-for="(val,index) in navs" :key="index" @click="detail">
             <dt>
                 <img :src="val.icon" alt="">
             </dt>
@@ -30,6 +30,11 @@ export default {
             }],
         }
     },
+    methods:{
+        detail(){
+            this.$router.push('/detail')
+        }
+    }
 }
 </script>
 <style>
